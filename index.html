@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/index_style.css">
+    <link rel="stylesheet" href="css/media_index.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Центр дистанционногообразования детей-инвалидов Липецкой облоасти</title>
+</head>
+<body>
+<!--Вверхнее меню-->
+<div class="container">
+    <nav class="navbar">
+        <div class="navbar__wrap top-menu">
+            <ul class="menu__block" id="">
+                <li class="tel">
+                    <a href="tel:+74742242884">+7(4742) 24-28-84</a>
+                </li>
+                <li class="mail">
+                    <a href="mailto:ask@htmlbook.ru">
+                        <img src="/img/index/mail.png" alt="">
+<!--                   почта-->
+                    </a>
+                </li>
+                <li class="vk">
+                    <a href="https://vk.com/elastomeric">
+                        <img src="img/index/vk.png" alt="Перейти вконтакте">
+<!--                        вконтакте-->
+                    </a>
+                </li>
+            </ul>
+            <a href="#" class="logo" id="logo"> <img src="img/index/logo.png" alt=""></a>
+            <li class="top-menu__btn">
+<!--                <ins></ins>-->
+                <a href="/login">Войти</a>
+
+            </li>
+            <ul class="menu menu__media" id="menu">
+
+                <li class="enter">
+                    <a href="#o__producte" class="el-911__product">Войти</a>
+                </li>
+                <li class="">
+                    <a href="#o__producte" class="el-911__product">Главная</a>
+                </li>
+                <li class="">
+                    <a href="#applications" class="el-911__proects">О школе</a>
+                </li>
+                <li class="">
+                    <a href="#works" class="el-911__proects">Поступающим</a>
+                </li>
+                <li class="">
+                    <a href="#price" class="el-911__price">Новости</a>
+                </li>
+                <li class="">
+                    <a href="#otzivy" class="el-911__otzivs">Мероприятия</a>
+                </li>
+                <li class="">
+                    <a href="#contacts" class="el-911__contacts">Контакты</a>
+                </li>
+            </ul>
+
+            <div class="hamb">
+                <div class="hamb__field" id="hamb">
+                    <span class="bar"></span> <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="popup" id="popup"></div>
+
+
+<!--Кнопка наверх-->
+<script>
+    const btnUp = {
+        el: document.querySelector('.btn-up'),
+        show() {
+            // удалим у кнопки класс btn-up_hide
+            this.el.classList.remove('btn-up_hide');
+        },
+        hide() {
+            // добавим к кнопке класс btn-up_hide
+            this.el.classList.add('btn-up_hide');
+        },
+        addEventListener() {
+            // при прокрутке содержимого страницы
+            window.addEventListener('scroll', () => {
+                // определяем величину прокрутки
+                const scrollY = window.scrollY || document.documentElement.scrollTop;
+                // если страница прокручена больше чем на 400px, то делаем кнопку видимой, иначе скрываем
+                scrollY > 400 ? this.show() : this.hide();
+            });
+            // при нажатии на кнопку .btn-up
+            document.querySelector('.btn-up').onclick = () => {
+                // переместим в начало страницы
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }
+    btnUp.addEventListener();
+</script>
+<!--.Кнопка наверх-->
+<!--Бургер меню-->
+<script>
+    const hamb = document.querySelector("#hamb");
+    const popup = document.querySelector("#popup");
+    const body = document.body;
+
+    // Клонируем меню, чтобы задать свои стили для мобильной версии
+    const menu = document.querySelector("#menu").cloneNode(1);
+
+    // При клике на иконку hamb вызываем ф-ию hambHandler
+    hamb.addEventListener("click", hambHandler);
+
+    // Выполняем действия при клике ..
+    function hambHandler(e) {
+        e.preventDefault();
+        // Переключаем стили элементов при клике
+        popup.classList.toggle("open");
+        hamb.classList.toggle("active");
+        body.classList.toggle("noscroll");
+        renderPopup();
+    }
+
+    // Здесь мы рендерим элементы в наш попап
+    function renderPopup() {
+        popup.appendChild(menu);
+    }
+
+    // Код для закрытия меню при нажатии на ссылку
+    const links = Array.from(menu.children);
+
+    // Для каждого элемента меню при клике вызываем ф-ию
+    links.forEach((link) => {
+        link.addEventListener("click", closeOnClick);
+    });
+
+    // Закрытие попапа при клике на меню
+    function closeOnClick() {
+        popup.classList.remove("open");
+        hamb.classList.remove("active");
+        body.classList.remove("noscroll");
+    }
+</script>
+<!--.Бургер меню-->
+
+</body>
+</html>

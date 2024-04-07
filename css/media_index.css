@@ -1,0 +1,121 @@
+@media (min-width: 720px) {
+    .enter{
+        display: none;
+    }
+}
+@media (max-width: 1000px) {
+    /*Вверхнее  меню*/
+    .navbar__wrap .menu {
+        display: none;
+    }
+
+
+    .hamb {
+        display: flex;
+        align-items: center;
+    }
+
+    .hamb__field {
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    .bar {
+        display: block;
+        width: 30px;
+        height: 3px;
+        margin: 6px auto;
+        background-color: #006ec2;
+        transition: 0.2s;
+    }
+
+    .popup {
+        position: fixed;
+        top: 75px;
+        right: -100%;
+        width: 100%;
+        left: 100%;
+        background-color: #1e1e1e;
+        z-index: 100;
+        display: flex;
+        transition: 0.3s;
+        height: 100%;
+    }
+
+    .popup.open {
+        left: 0;
+    }
+
+    .popup .menu {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        padding: 50px 0;
+        overflow: auto;
+    }
+
+    .popup .menu > li {
+        width: 100%;
+    }
+
+    .popup .menu > li > a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 11px 0;
+        font-size: 26px;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+
+        margin: 0 auto;
+    }
+
+    .popup .menu > li > a:hover {
+        background-color: #333333;
+    }
+
+    .hamb__field.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamb__field.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamb__field.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    body.noscroll {
+        overflow: hidden;
+    }
+
+    /*.Вверхнее  меню*/
+}
+@media (max-width: 720px) {
+    .top-menu__btn{
+        display: none;
+    }
+    .enter{
+        display: block;
+    }
+}
+@media (max-width: 646px) {
+ .mail, .vk{
+     display: none;
+ }
+}
+@media (max-width: 540px) {
+    .navbar__wrap{
+        flex-wrap: nowrap;
+    }
+    .menu__block{
+        display: none;
+    }
+}
+
+
