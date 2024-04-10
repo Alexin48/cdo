@@ -1,4 +1,12 @@
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
+    h1 {
+        font-size: calc(21px + 29 * (100vw / 1200));
+    }
+
+}
+
+
+@media (max-width: 902px) {
     /*Вверхнее  меню*/
     .navbar__wrap .menu {
         display: none;
@@ -12,6 +20,9 @@
     .menu__block {
         justify-content: end;
         width: 55%;
+    }
+    .menu__media {
+        display: none;
     }
 
 
@@ -102,6 +113,7 @@
     /*.Вверхнее  меню*/
 }
 
+
 @media (max-width: 720px) {
     .top-menu__btn {
         display: none;
@@ -113,6 +125,21 @@
     .mail, .vk {
         display: none;
     }
+}
+@media (max-width: 565px) {
+ /*About*/
+    .about__info h1{
+        text-align: center;
+    }
+    .about__block__btn{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .about__block__btn a{
+        width: 100%;
+        text-align: center;
+    }
+ /*.About*/
 }
 
 @media (max-width: 540px) {
