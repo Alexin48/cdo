@@ -69,6 +69,32 @@
 </div>
 <div class="popup" id="popup"></div>
 <!--.Вверхнее меню-->
+
+<!-- Payment Error Modal -->
+<div class="modal-overlay" id="paymentErrorModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+
+        <div class="modal-icon-error">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="23" stroke="#E85C5C" stroke-width="2"/>
+                <path d="M18 18L30 30" stroke="#E85C5C" stroke-width="2" stroke-linecap="round"/>
+                <path d="M30 18L18 30" stroke="#E85C5C" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <h2 class="modal-title">Вы не можете оплатить подписку.</h2>
+        <h3 class="modal-subtitle">Недостаточно средств.</h3>
+
+        <p class="modal-description">На Вашем основном счете, не включая бонусов:</p>
+
+        <div class="modal-amount">0.00 y.e.</div>
+
+        <button class="modal-btn-primary" onclick="refillBalance()">Пополнить баланс</button>
+
+        <button class="modal-btn-secondary" onclick="changePaymentMethod()">Изменить способ оплаты</button>
+    </div>
+</div>
 <section class="about">
     <div class="container">
         <div class="about__info">
@@ -167,6 +193,31 @@
     }
 </script>
 <!--.Бургер меню-->
+<script>
+    function closePaymentModal() {
+        const modal = document.getElementById('paymentErrorModal');
+        modal.style.display = 'none';
+    }
+
+    function refillBalance() {
+        console.log('Пополнить баланс');
+    }
+
+    function changePaymentMethod() {
+        console.log('Изменить способ оплаты');
+    }
+
+    function showPaymentModal() {
+        const modal = document.getElementById('paymentErrorModal');
+        modal.style.display = 'flex';
+    }
+
+    document.getElementById('paymentErrorModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closePaymentModal();
+        }
+    });
+</script>
 
 </body>
 </html>
